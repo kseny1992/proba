@@ -19,7 +19,7 @@ def set(): #установка
             now = datetime.datetime.now()
             print(now)
             dt = now.replace(hour=hour,minute=minute,second=0,microsecond=0) #заменяем часы на новые часы и минуты заменяем на минуты
-            #получим текущее время в котором изменены часы и минуты
+            #получим текущее время в котором изменены часы и минуты и обнуляем секунды
             print(dt)
             t=dt.timestamp()#получить временнУю метку в млд секунд
             print(t)
@@ -38,12 +38,12 @@ def check(): #
     window.after(10000, check) #вызываем функцию чек через 10 секунд автоматически (6 раз в минуту) - рекурсия
 
 
-def play_snd():
-    global music
-    music = True
-    pygame.mixer.init()
-    pygame.mixer.music.load("reminder.mp3")
-    pygame.mixer.music.play()
+def play_snd():#
+    global music #
+    music = True #
+    pygame.mixer.init()#инициализируем миксер который играет музыку
+    pygame.mixer.music.load("reminder.mp3") #загружаем музыку
+    pygame.mixer.music.play() #включение музыки
 
 
 def stop_music():
@@ -57,7 +57,7 @@ def stop_music():
 window = Tk()
 window.title("Напоминание")
 label = Label(text="Установите напоминание")
-font = ("Arial",14)
+font = ("Arial",14)#более крупный шрифт
 label.pack(pady=10)
 
 set_button = Button(text="Установить напоминание", command = set)
