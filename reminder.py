@@ -6,7 +6,7 @@ import time
 import  pygame #для работы со звуком
 
 t=None #глобальная
-music=False #переменная для отслеживания проигрывания музыки
+music=False #переменная для отслеживания проигрывания музыки музыка не играет при запуске программы
 def set(): #установка
 
     global t
@@ -48,7 +48,7 @@ def play_snd():#
 
 def stop_music():
     global music
-    if music:
+    if music: #если музыка играет то стоп
         pygame.mixer.music.stop()
         music=False
     label.config(text="Установить новое напоминание")
@@ -63,7 +63,7 @@ label.pack(pady=10)
 set_button = Button(text="Установить напоминание", command = set)
 set_button.pack(pady=10)
 
-stop_button = Button(text="Остановить музыку", command=stop_music)
+stop_button = Button(text="Остановить музыку", command=stop_music) #отключение напоминания
 stop_button.pack(pady=5)
 
 check()
